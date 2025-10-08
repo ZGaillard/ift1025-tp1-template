@@ -154,12 +154,7 @@ private static TestResult runTestClass(final Class<?> testClass) {
 				Object testInstance = testClass.getDeclaredConstructor().newInstance();
 				
 				// Exécuter @BeforeEach pour cette instance
-				for (Method m : testClass.getDeclaredMethods()) {
-					if (m.isAnnotationPresent(BeforeEach.class)) {
-						m.setAccessible(true);
-						m.invoke(testInstance);
-					}
-				}
+				executeBeforeEach(testInstance, testClass);
 				
 				// Exécuter le test
 				method.setAccessible(true);
@@ -195,31 +190,6 @@ private static void executeBeforeEach(final Object testInstance, final Class<?> 
 				System.err.println(YELLOW + "Warning: BeforeEach method failed: " + e.getMessage() + RESET);
 			}
 		}
-	}
-}
-
-/**
- * Executes a single test method.
- *
- * @param testInstance the test class instance
- * @param method       the test method to execute
- * @return {@code true} if test passed, {@code false} otherwise
- */
-private static boolean executeTestMethod(final Object testInstance, final Method method) {
-	try {
-		method.setAccessible(true);
-		method.invoke(testInstance);
-		System.out.println(GREEN + "  ✅ " + method.getName() + RESET);
-		return true;
-	} catch (final InvocationTargetException e) {
-		final Throwable cause = e.getCause();
-		System.out.println(RED + "  ❌ " + method.getName() + " - " + cause.getClass().getSimpleName() +
-			                   ": " + cause.getMessage() + RESET);
-		return false;
-	} catch (final Exception e) {
-		System.out.println(RED + "  ❌ " + method.getName() + " - " + e.getClass().getSimpleName() +
-			                   ": " + e.getMessage() + RESET);
-		return false;
 	}
 }
 

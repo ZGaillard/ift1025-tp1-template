@@ -32,6 +32,7 @@ private static final int MOVEMENT_RANGE = 2; // 3x3
 //=============================================================================
 //                               Construction
 //=============================================================================
+
 /**
  * Construct a herbivore with base energy 3.
  */
@@ -51,6 +52,7 @@ public Herbivore(int energy) {
 //=============================================================================
 //                                Perception
 //=============================================================================
+
 /**
  * Return herbivore vision range.
  *
@@ -58,12 +60,13 @@ public Herbivore(int energy) {
  */
 @Override
 public int visionRange() {
-    return VISION_RANGE;
+	return VISION_RANGE;
 }
 
 //=============================================================================
 //                                   Fleeing
 //=============================================================================
+
 /**
  * Choose a position maximizing distance from a nearby carnivore if one is perceived.
  *
@@ -79,11 +82,12 @@ public Position chooseFlee(World world) {
 //=============================================================================
 //                                  Movement
 //=============================================================================
+
 /**
  * Choose movement toward the highest-energy plant; fallback to random empty cell.
  *
  * @param world world context
- * @param pos current position
+ * @param pos   current position
  * @return destination cell or {@code null}
  */
 @Override
@@ -95,6 +99,7 @@ public Cell chooseMove(World world, Position pos) {
 //=============================================================================
 //                                   Feeding
 //=============================================================================
+
 /**
  * Return whether the herbivore can eat the plant in the cell.
  *
@@ -110,7 +115,7 @@ public boolean canEat(Cell cell) {
 /**
  * Consume a plant if present.
  *
- * @param cell target cell
+ * @param cell  target cell
  * @param world world context
  */
 @Override
@@ -121,6 +126,7 @@ public void eat(Cell cell, World world) {
 //=============================================================================
 //                                   Edible
 //=============================================================================
+
 /**
  * Return nutrition value (current energy).
  *
@@ -134,6 +140,7 @@ public int nutrition() {
 //=============================================================================
 //                               Reproduction
 //=============================================================================
+
 /**
  * Return whether reproduction threshold is reached.
  *
@@ -159,6 +166,7 @@ public Organism reproduce() {
 //=============================================================================
 //                            Energy Management
 //=============================================================================
+
 /**
  * Add energy clamped to {@code MAX_ENERGY}.
  *

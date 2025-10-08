@@ -133,112 +133,112 @@ public void testHerbivoreReproduction() {
 
 @Test
 public void testAddEnergyClamp() {
-    RandomGenerator.reseed(1234L);
-    Herbivore h = new Herbivore(9); // max 10
-    h.addEnergy(10); // dépasse
-    assertEquals(10, h.getEnergy(), "Énergie herbivore plafonnée à 10");
+	RandomGenerator.reseed(1234L);
+	Herbivore h = new Herbivore(9); // max 10
+	h.addEnergy(10); // dépasse
+	assertEquals(10, h.getEnergy(), "Énergie herbivore plafonnée à 10");
 }
 
 @Test
 public void testReproductionHalvesEnergyOnSpawn() {
-    RandomGenerator.reseed(1234L);
-    Herbivore h = new Herbivore(9); // >= threshold 7
-    Position pos = new Position(2, 2);
-    world.getCell(pos).setAnimal(h);
-    h.setPosition(pos);
-    int before = h.getEnergy();
-    boolean spawned = h.spawn(world);
-    assertTrue(spawned, "Spawn devrait réussir avec énergie suffisante et voisins libres");
-    assertEquals(before - before / 2, h.getEnergy(), "L'énergie doit être réduite de moitié après reproduction");
+	RandomGenerator.reseed(1234L);
+	Herbivore h = new Herbivore(9); // >= threshold 7
+	Position pos = new Position(2, 2);
+	world.getCell(pos).setAnimal(h);
+	h.setPosition(pos);
+	int before = h.getEnergy();
+	boolean spawned = h.spawn(world);
+	assertTrue(spawned, "Spawn devrait réussir avec énergie suffisante et voisins libres");
+	assertEquals(before - before / 2, h.getEnergy(), "L'énergie doit être réduite de moitié après reproduction");
 }
 
 @Test
 public void testEatIncreasesEnergyButClamped() {
-    RandomGenerator.reseed(1234L);
-    Herbivore h = new Herbivore(9); // energy 9
-    Position hPos = new Position(1, 1);
-    world.getCell(hPos).setAnimal(h);
-    h.setPosition(hPos);
-    Plant p = new Plant(3); // plante énergie 3
-    Position plantPos = new Position(2, 1);
-    world.getCell(plantPos).setPlant(p);
-    p.setPosition(plantPos);
-    Cell dest = h.chooseMove(world, hPos);
-    assertNotNull(dest, "chooseMove devrait cibler une plante si présente");
-    assertEquals(plantPos, dest.getPosition(), "Doit se déplacer vers la plante");
-    assertTrue(h.canEat(dest), "canEat devrait être true sur la plante");
-    h.eat(dest, world);
-    assertEquals(10, h.getEnergy(), "Gain d'énergie plafonné à 10");
+	RandomGenerator.reseed(1234L);
+	Herbivore h = new Herbivore(9); // energy 9
+	Position hPos = new Position(1, 1);
+	world.getCell(hPos).setAnimal(h);
+	h.setPosition(hPos);
+	Plant p = new Plant(3); // plante énergie 3
+	Position plantPos = new Position(2, 1);
+	world.getCell(plantPos).setPlant(p);
+	p.setPosition(plantPos);
+	Cell dest = h.chooseMove(world, hPos);
+	assertNotNull(dest, "chooseMove devrait cibler une plante si présente");
+	assertEquals(plantPos, dest.getPosition(), "Doit se déplacer vers la plante");
+	assertTrue(h.canEat(dest), "canEat devrait être true sur la plante");
+	h.eat(dest, world);
+	assertEquals(10, h.getEnergy(), "Gain d'énergie plafonné à 10");
 }
 
 @Test
 public void testChooseHighestEnergyPlantAmongMany() {
-    RandomGenerator.reseed(1234L);
-    Herbivore h = new Herbivore(4);
-    Position pos = new Position(3, 3);
-    world.getCell(pos).setAnimal(h);
-    h.setPosition(pos);
-    Plant p1 = new Plant(1);
-    Position p1Pos = new Position(2, 3);
-    world.getCell(p1Pos).setPlant(p1);
-    p1.setPosition(p1Pos);
-    Plant p2 = new Plant(3);
-    Position p2Pos = new Position(3, 4);
-    world.getCell(p2Pos).setPlant(p2);
-    p2.setPosition(p2Pos);
-    Plant p3 = new Plant(3);
-    Position p3Pos = new Position(4, 3);
-    world.getCell(p3Pos).setPlant(p3);
-    p3.setPosition(p3Pos);
-    Cell dest = h.chooseMove(world, pos);
-    assertNotNull(dest, "chooseMove doit retourner une cellule");
-    assertTrue(dest.getPosition().equals(p2Pos) || dest.getPosition().equals(p3Pos), "Doit viser une plante d'énergie maximale");
+	RandomGenerator.reseed(1234L);
+	Herbivore h = new Herbivore(4);
+	Position pos = new Position(3, 3);
+	world.getCell(pos).setAnimal(h);
+	h.setPosition(pos);
+	Plant p1 = new Plant(1);
+	Position p1Pos = new Position(2, 3);
+	world.getCell(p1Pos).setPlant(p1);
+	p1.setPosition(p1Pos);
+	Plant p2 = new Plant(3);
+	Position p2Pos = new Position(3, 4);
+	world.getCell(p2Pos).setPlant(p2);
+	p2.setPosition(p2Pos);
+	Plant p3 = new Plant(3);
+	Position p3Pos = new Position(4, 3);
+	world.getCell(p3Pos).setPlant(p3);
+	p3.setPosition(p3Pos);
+	Cell dest = h.chooseMove(world, pos);
+	assertNotNull(dest, "chooseMove doit retourner une cellule");
+	assertTrue(dest.getPosition().equals(p2Pos) || dest.getPosition().equals(p3Pos), "Doit viser une plante d'énergie maximale");
 }
 
 @Test
 public void testFleeChoosesFarthest() {
-    // Arrange
-    RandomGenerator.reseed(1234L);
-    World fleeWorld = new World(7, 7);
-    Herbivore h = new Herbivore(6); // en dessous reproduction
-    Position hPos = new Position(3, 3);
-    fleeWorld.getCell(hPos).setAnimal(h);
-    h.setPosition(hPos);
-    // Placer un carnivore (prédateur) juste au nord pour forcer la fuite
-    Carnivore predator = new Carnivore(8);
-    Position predatorPos = new Position(3, 2);
-    fleeWorld.getCell(predatorPos).setAnimal(predator);
-    predator.setPosition(predatorPos);
-
-    // Act
-    Position fleeTarget = h.chooseFlee(fleeWorld);
-
-    // Assert
-    assertNotNull(fleeTarget, "La fuite ne doit pas être null lorsqu'un prédateur est perçu (implémentez Herbivore.chooseFlee)");
-    // Le prédateur est en (3,2). Les positions perçues sont l'anneau 3x3 autour de (3,3).
-    // Distances Manhattan au prédateur (3,2) parmi les cellules libres les plus éloignées: (2,4) et (4,4) avec distance 3.
-    int dist = fleeTarget.distanceTo(predatorPos);
-    assertTrue(dist >= 0, "Distance calculable");
-    int maxExpected = 3; // distance maximale possible dans la couronne 3x3
-    assertEquals(maxExpected, dist, "La position de fuite doit maximiser la distance au prédateur (implémentez la sélection dans chooseFlee)");
-    assertTrue((fleeTarget.equals(new Position(2,4)) || fleeTarget.equals(new Position(4,4))),
-        "La fuite doit viser une des positions les plus éloignées (2,4) ou (4,4) – implémentez Herbivore.chooseFlee");
+	// Arrange
+	RandomGenerator.reseed(1234L);
+	World fleeWorld = new World(7, 7);
+	Herbivore h = new Herbivore(6); // en dessous reproduction
+	Position hPos = new Position(3, 3);
+	fleeWorld.getCell(hPos).setAnimal(h);
+	h.setPosition(hPos);
+	// Placer un carnivore (prédateur) juste au nord pour forcer la fuite
+	Carnivore predator = new Carnivore(8);
+	Position predatorPos = new Position(3, 2);
+	fleeWorld.getCell(predatorPos).setAnimal(predator);
+	predator.setPosition(predatorPos);
+	
+	// Act
+	Position fleeTarget = h.chooseFlee(fleeWorld);
+	
+	// Assert
+	assertNotNull(fleeTarget, "La fuite ne doit pas être null lorsqu'un prédateur est perçu (implémentez Herbivore.chooseFlee)");
+	// Le prédateur est en (3,2). Les positions perçues sont l'anneau 3x3 autour de (3,3).
+	// Distances Manhattan au prédateur (3,2) parmi les cellules libres les plus éloignées: (2,4) et (4,4) avec distance 3.
+	int dist = fleeTarget.distanceTo(predatorPos);
+	assertTrue(dist >= 0, "Distance calculable");
+	int maxExpected = 3; // distance maximale possible dans la couronne 3x3
+	assertEquals(maxExpected, dist, "La position de fuite doit maximiser la distance au prédateur (implémentez la sélection dans chooseFlee)");
+	assertTrue((fleeTarget.equals(new Position(2, 4)) || fleeTarget.equals(new Position(4, 4))),
+		"La fuite doit viser une des positions les plus éloignées (2,4) ou (4,4) – implémentez Herbivore.chooseFlee");
 }
 
 @Test
 public void testSpawnFailsWhenNoEmptyNeighbor() {
-    RandomGenerator.reseed(1234L);
-    Herbivore h = new Herbivore(10);
-    Position center = new Position(2, 2);
-    world.getCell(center).setAnimal(h);
-    h.setPosition(center);
-    for (Position p : new Position[]{new Position(2, 1), new Position(2, 3), new Position(1, 2), new Position(3, 2)}) {
-        Herbivore blocker = new Herbivore(3);
-        world.getCell(p).setAnimal(blocker);
-        blocker.setPosition(p);
-    }
-    assertTrue(h.canReproduce(world), "Condition reproduction vraie (énergie suffisante)");
-    assertFalse(h.spawn(world), "Spawn doit échouer faute d'emplacement libre");
-    assertEquals(10, h.getEnergy(), "Énergie inchangée car reproduction échouée");
+	RandomGenerator.reseed(1234L);
+	Herbivore h = new Herbivore(10);
+	Position center = new Position(2, 2);
+	world.getCell(center).setAnimal(h);
+	h.setPosition(center);
+	for (Position p : new Position[]{new Position(2, 1), new Position(2, 3), new Position(1, 2), new Position(3, 2)}) {
+		Herbivore blocker = new Herbivore(3);
+		world.getCell(p).setAnimal(blocker);
+		blocker.setPosition(p);
+	}
+	assertTrue(h.canReproduce(world), "Condition reproduction vraie (énergie suffisante)");
+	assertFalse(h.spawn(world), "Spawn doit échouer faute d'emplacement libre");
+	assertEquals(10, h.getEnergy(), "Énergie inchangée car reproduction échouée");
 }
 }

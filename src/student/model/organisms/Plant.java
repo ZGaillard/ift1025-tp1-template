@@ -6,15 +6,10 @@
  * ========================================================================== */
 package student.model.organisms;
 
-import prof.utils.RandomGenerator;
 import student.model.behaviors.Edible;
 import student.model.behaviors.Growable;
 import student.model.behaviors.Reproducible;
-import student.model.core.Cell;
 import student.model.core.World;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents a simple plant with bounded energy and reproduction on saturation.
@@ -36,6 +31,7 @@ private static final int MAX_ENERGY = 3;
 //=============================================================================
 //                               Construction
 //=============================================================================
+
 /**
  * Construct a plant with initial energy 1.
  */
@@ -56,6 +52,7 @@ public Plant(int energy) {
 //=============================================================================
 //                                   Growth
 //=============================================================================
+
 /**
  * Increase energy by 1 up to {@code MAX_ENERGY} if alive.
  *
@@ -69,6 +66,7 @@ public void grow(World world) {
 //=============================================================================
 //                                  Edible
 //=============================================================================
+
 /**
  * Return current energy as nutritional value.
  *
@@ -82,6 +80,7 @@ public int nutrition() {
 //=============================================================================
 //                               Reproduction
 //=============================================================================
+
 /**
  * Determine whether reproduction can occur (alive, saturated energy, free neighbor).
  *
@@ -120,6 +119,7 @@ public boolean spawn(World world) {
 //=============================================================================
 //                            Energy Management
 //=============================================================================
+
 /**
  * Add energy clamped to {@code MAX_ENERGY}.
  *

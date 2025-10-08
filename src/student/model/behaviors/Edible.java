@@ -10,10 +10,10 @@ package student.model.behaviors;
  * Defines an entity that can be consumed to yield a nutritional energy value.
  */
 public interface Edible {
-    /**
-     * Return the nutritional energy granted when this entity is consumed.
-     *
-     * @return positive energy value transferred to the consumer
-     */
-    int nutrition();
+/**
+ * Return the nutritional energy granted when this entity is consumed.
+ *
+ * @return positive energy value transferred to the consumer
+ */
+int nutrition();
 }

@@ -15,16 +15,16 @@ import student.model.core.World;
  * Implementations decide collision rules, path constraints, and tie-breaking.
  */
 public interface Movable {
-    //=============================================================================
-    //                                   Contract
-    //=============================================================================
+//=============================================================================
+//                                   Contract
+//=============================================================================
 
-    /**
-     * Choose a destination cell for movement or return {@code null} to stay in place.
-     *
-     * @param world current world context
-     * @param pos   current position of the entity
-     * @return chosen destination cell or {@code null} to remain stationary
-     */
-    Cell chooseMove(World world, Position pos);
+/**
+ * Choose a destination cell for movement or return {@code null} to stay in place.
+ *
+ * @param world current world context
+ * @param pos   current position of the entity
+ * @return chosen destination cell or {@code null} to remain stationary
+ */
+Cell chooseMove(World world, Position pos);
 }

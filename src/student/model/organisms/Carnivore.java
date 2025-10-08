@@ -6,14 +6,10 @@
  * ========================================================================== */
 package student.model.organisms;
 
-import prof.utils.RandomGenerator;
 import student.model.behaviors.Hunting;
 import student.model.core.Cell;
 import student.model.core.Position;
 import student.model.core.World;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Carnivore organism that:
@@ -35,6 +31,7 @@ private static final int MOVEMENT_RANGE = 2; // 3x3
 //=============================================================================
 //                               Construction
 //=============================================================================
+
 /**
  * Construct a carnivore with base energy 5.
  */
@@ -54,6 +51,7 @@ public Carnivore(int energy) {
 //=============================================================================
 //                                Perception
 //=============================================================================
+
 /**
  * Return carnivore vision range (greater than herbivores).
  *
@@ -68,47 +66,50 @@ public Carnivore(int energy) {
  */
 @Override
 public int visionRange() {
-    return VISION_RANGE;
+	return VISION_RANGE;
 }
 
 //=============================================================================
 //                                  Hunting
 //=============================================================================
+
 /**
  * Choose a prey position (herbivore) inside vision if any.
  * Uses the same semantic as neighborhood construction:
- *  vision 1: cross (4)
- *  vision 2: full 3x3 (radius 1 square excluding center)
- *  vision 3: full 5x5 (radius 2 square excluding center)
+ * vision 1: cross (4)
+ * vision 2: full 3x3 (radius 1 square excluding center)
+ * vision 3: full 5x5 (radius 2 square excluding center)
  *
  * @param world world context
  * @return prey position or {@code null}
  */
 @Override
 public Position chooseHunt(World world) {
-    // TODO - Implémenter la détection de proies
+	// TODO - Implémenter la détection de proies
 	return null;
 }
 
 //=============================================================================
 //                                  Movement
 //=============================================================================
+
 /**
  * Move toward prey if detected; else random adjacent move.
  *
  * @param world world context
- * @param pos current position
+ * @param pos   current position
  * @return destination cell or {@code null}
  */
 @Override
 public Cell chooseMove(World world, Position pos) {
-    // TODO - Implémenter le déplacement dirigé vers la proie
+	// TODO - Implémenter le déplacement dirigé vers la proie
 	return null;
 }
 
 //=============================================================================
 //                                   Feeding
 //=============================================================================
+
 /**
  * Return whether the cell contains an herbivore to consume.
  *
@@ -124,7 +125,7 @@ public boolean canEat(Cell cell) {
 /**
  * Consume herbivore if present.
  *
- * @param cell target cell
+ * @param cell  target cell
  * @param world world context
  */
 @Override
@@ -135,6 +136,7 @@ public void eat(Cell cell, World world) {
 //=============================================================================
 //                               Reproduction
 //=============================================================================
+
 /**
  * Return whether reproduction threshold is reached.
  *
@@ -160,6 +162,7 @@ public Organism reproduce() {
 //=============================================================================
 //                            Energy Management
 //=============================================================================
+
 /**
  * Add energy clamped to {@code MAX_ENERGY}.
  *

@@ -14,16 +14,16 @@ import student.model.core.World;
  * Implementations decide prey identification, tie-breaking, and pathing heuristics.
  */
 public interface Hunting {
-    //=============================================================================
-    //                                   Contract
-    //=============================================================================
+//=============================================================================
+//                                   Contract
+//=============================================================================
 
-    /**
-     * Choose a position toward which the hunter will move to reach prey. Returning {@code null}
-     * indicates no suitable prey was found or that staying in place is preferable this turn.
-     *
-     * @param world current world context
-     * @return prey position or {@code null} if no target exists
-     */
-    Position chooseHunt(World world);
+/**
+ * Choose a position toward which the hunter will move to reach prey. Returning {@code null}
+ * indicates no suitable prey was found or that staying in place is preferable this turn.
+ *
+ * @param world current world context
+ * @return prey position or {@code null} if no target exists
+ */
+Position chooseHunt(World world);
 }

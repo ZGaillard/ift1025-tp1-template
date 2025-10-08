@@ -162,9 +162,9 @@ public void testPhaseReproductionFailsNoSpacePlant() {
 @Test
 public void testHerbivoreEnergyDecreasesWhenBlocked() {
 	world = new World(8, 8);
-    controller = new SimulationController(world);
-    
-    Herbivore h = new Herbivore(5);
+	controller = new SimulationController(world);
+	
+	Herbivore h = new Herbivore(5);
 	Position center = new Position(0, 0);
 	world.getCell(center).setAnimal(h);
 	h.setPosition(center);
@@ -177,19 +177,19 @@ public void testHerbivoreEnergyDecreasesWhenBlocked() {
 	controller.phaseHerbivores();
 	assertEquals(4, h.getEnergy(), "Pas de mouvement possible -> énergie -1");
 	assertEquals(center, h.getPosition());
-    world = null;
+	world = null;
 }
 
 @Test
 public void testCarnivoreEnergyDecreasesWhenBlocked() {
-    world = new World(8, 8);
-    controller = new SimulationController(world);
-    
+	world = new World(8, 8);
+	controller = new SimulationController(world);
+	
 	Carnivore c = new Carnivore(8);
 	Position center = new Position(0, 0);
 	world.getCell(center).setAnimal(c);
 	c.setPosition(center);
-    // Bloquer les 3 autres coins (0,1), (1,0), (1,1)
+	// Bloquer les 3 autres coins (0,1), (1,0), (1,1)
 	for (Position p : new Position[]{new Position(0, 1), new Position(1, 0), new Position(1, 1)}) {
 		Carnivore blocker = new Carnivore(5);
 		world.getCell(p).setAnimal(blocker);

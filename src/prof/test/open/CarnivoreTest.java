@@ -6,12 +6,12 @@ package prof.test.open;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import prof.utils.RandomGenerator;
 import student.model.core.Cell;
 import student.model.core.Position;
 import student.model.core.World;
 import student.model.organisms.Carnivore;
 import student.model.organisms.Herbivore;
-import prof.utils.RandomGenerator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,7 +77,7 @@ public void testCarnivoreEatHerbivore() {
 	assertTrue(carnivore.canEat(targetCell), "canEat devrait retourner true pour une proie adjacente (implémentez Carnivore.canEat)");
 	carnivore.eat(targetCell, world);
 	assertTrue(carnivore.getEnergy() > initialEnergy, "L'énergie du carnivore devrait augmenter après avoir mangé (implémentez Carnivore.eat)");
-	assertFalse(targetCell.hasAnimal(), "La cellule de la proie devrait être vide après consommation (implémentez remove)" );
+	assertFalse(targetCell.hasAnimal(), "La cellule de la proie devrait être vide après consommation (implémentez remove)");
 }
 
 /**
@@ -147,89 +147,89 @@ public void testCarnivoreHunting() {
 	
 	final Position huntTarget = carnivore.chooseHunt(world);
 	assertNotNull(huntTarget, "chooseHunt ne doit pas retourner null quand une proie est dans le champ de vision (implémentez Carnivore.chooseHunt)");
-	assertEquals(herbivorePosition, huntTarget, "La cible de chasse devrait être la position de l'herbivore" );
+	assertEquals(herbivorePosition, huntTarget, "La cible de chasse devrait être la position de l'herbivore");
 }
 
 @Test
 public void testAddEnergyClamp() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(19);
-    c.addEnergy(10); // dépasse max 20
-    assertEquals(20, c.getEnergy(), "Énergie carnivore plafonnée à 20");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(19);
+	c.addEnergy(10); // dépasse max 20
+	assertEquals(20, c.getEnergy(), "Énergie carnivore plafonnée à 20");
 }
 
 @Test
 public void testReproductionHalvesEnergyOnSpawn() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(16); // >= threshold 14
-    Position pos = new Position(3, 3);
-    world.getCell(pos).setAnimal(c);
-    c.setPosition(pos);
-    int before = c.getEnergy();
-    boolean spawned = c.spawn(world);
-    assertTrue(spawned, "Spawn carnivore devrait réussir avec énergie suffisante");
-    assertEquals(before - before / 2, c.getEnergy(), "Énergie parent réduite de moitié");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(16); // >= threshold 14
+	Position pos = new Position(3, 3);
+	world.getCell(pos).setAnimal(c);
+	c.setPosition(pos);
+	int before = c.getEnergy();
+	boolean spawned = c.spawn(world);
+	assertTrue(spawned, "Spawn carnivore devrait réussir avec énergie suffisante");
+	assertEquals(before - before / 2, c.getEnergy(), "Énergie parent réduite de moitié");
 }
 
 @Test
 public void testSpawnFailsNoEmptyNeighbor() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(18);
-    Position center = new Position(2, 2);
-    world.getCell(center).setAnimal(c);
-    c.setPosition(center);
-    for (Position p : new Position[]{new Position(2, 1), new Position(2, 3), new Position(1, 2), new Position(3, 2)}) {
-        Carnivore blocker = new Carnivore(5);
-        world.getCell(p).setAnimal(blocker);
-        blocker.setPosition(p);
-    }
-    assertTrue(c.canReproduce(world), "Condition reproduction vraie");
-    assertFalse(c.spawn(world), "Pas d'emplacement vide -> échec");
-    assertEquals(18, c.getEnergy(), "Énergie inchangée après échec spawn");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(18);
+	Position center = new Position(2, 2);
+	world.getCell(center).setAnimal(c);
+	c.setPosition(center);
+	for (Position p : new Position[]{new Position(2, 1), new Position(2, 3), new Position(1, 2), new Position(3, 2)}) {
+		Carnivore blocker = new Carnivore(5);
+		world.getCell(p).setAnimal(blocker);
+		blocker.setPosition(p);
+	}
+	assertTrue(c.canReproduce(world), "Condition reproduction vraie");
+	assertFalse(c.spawn(world), "Pas d'emplacement vide -> échec");
+	assertEquals(18, c.getEnergy(), "Énergie inchangée après échec spawn");
 }
 
 @Test
 public void testEatHerbivoreEnergyClamp() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(19); // proche max
-    Herbivore h = new Herbivore(6);
-    Position preyPos = new Position(4, 4);
-    world.getCell(preyPos).setAnimal(h);
-    h.setPosition(preyPos);
-    Position cPos = new Position(4, 3);
-    world.getCell(cPos).setAnimal(c);
-    c.setPosition(cPos);
-    assertTrue(c.canEat(world.getCell(preyPos)));
-    c.eat(world.getCell(preyPos), world);
-    assertEquals(20, c.getEnergy(), "Énergie doit être plafonnée à 20 après repas");
-    assertFalse(world.getCell(preyPos).hasAnimal(), "Herbivore consommé doit être retiré");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(19); // proche max
+	Herbivore h = new Herbivore(6);
+	Position preyPos = new Position(4, 4);
+	world.getCell(preyPos).setAnimal(h);
+	h.setPosition(preyPos);
+	Position cPos = new Position(4, 3);
+	world.getCell(cPos).setAnimal(c);
+	c.setPosition(cPos);
+	assertTrue(c.canEat(world.getCell(preyPos)));
+	c.eat(world.getCell(preyPos), world);
+	assertEquals(20, c.getEnergy(), "Énergie doit être plafonnée à 20 après repas");
+	assertFalse(world.getCell(preyPos).hasAnimal(), "Herbivore consommé doit être retiré");
 }
 
 @Test
 public void testDirectionalMoveTowardPrey() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(10);
-    Position cPos = new Position(2, 2);
-    world.getCell(cPos).setAnimal(c);
-    c.setPosition(cPos);
-    Herbivore h = new Herbivore(4);
-    Position preyPos = new Position(2, 4);
-    world.getCell(preyPos).setAnimal(h);
-    h.setPosition(preyPos);
-    Cell dest = c.chooseMove(world, cPos);
-    assertNotNull(dest);
-    assertEquals(new Position(2, 3), dest.getPosition(), "Déplacement directionnel vers la proie");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(10);
+	Position cPos = new Position(2, 2);
+	world.getCell(cPos).setAnimal(c);
+	c.setPosition(cPos);
+	Herbivore h = new Herbivore(4);
+	Position preyPos = new Position(2, 4);
+	world.getCell(preyPos).setAnimal(h);
+	h.setPosition(preyPos);
+	Cell dest = c.chooseMove(world, cPos);
+	assertNotNull(dest);
+	assertEquals(new Position(2, 3), dest.getPosition(), "Déplacement directionnel vers la proie");
 }
 
 @Test
 public void testRandomMoveWhenNoPrey() {
-    RandomGenerator.reseed(2024L);
-    Carnivore c = new Carnivore(8);
-    Position cPos = new Position(5, 5);
-    world.getCell(cPos).setAnimal(c);
-    c.setPosition(cPos);
-    Cell dest = c.chooseMove(world, cPos);
-    assertNotNull(dest, "Doit choisir un déplacement même sans proie");
-    assertEquals(1, dest.getPosition().distanceTo(cPos), "Déplacement doit être adjacent");
+	RandomGenerator.reseed(2024L);
+	Carnivore c = new Carnivore(8);
+	Position cPos = new Position(5, 5);
+	world.getCell(cPos).setAnimal(c);
+	c.setPosition(cPos);
+	Cell dest = c.chooseMove(world, cPos);
+	assertNotNull(dest, "Doit choisir un déplacement même sans proie");
+	assertEquals(1, dest.getPosition().distanceTo(cPos), "Déplacement doit être adjacent");
 }
 }

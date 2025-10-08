@@ -86,21 +86,21 @@ public void testPlantIsAlive() {
  */
 @Test
 public void testPlantGrowth() {
-    final Plant plant = new Plant(1); // démarrer au minimum pour observer l'évolution
-    final Position position = new Position(5, 5);
-    plant.setPosition(position);
-    world.getCell(position).setPlant(plant);
-
-    int last = plant.getEnergy();
-    int cycles = 10; // suffisamment pour atteindre et tester le plafond
-    for (int i = 0; i < cycles; i++) {
-        plant.grow(world);
-        int current = plant.getEnergy();
-        assertTrue(current >= last, "L'énergie ne doit pas diminuer pendant la croissance (itération " + i + ")");
-        assertTrue(current <= MAX_PLANT_ENERGY, "L'énergie ne doit jamais dépasser " + MAX_PLANT_ENERGY + " (itération " + i + ")");
-        last = current;
-    }
-    assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Après suffisamment de cycles la plante doit atteindre le maximum exactement");
+	final Plant plant = new Plant(1); // démarrer au minimum pour observer l'évolution
+	final Position position = new Position(5, 5);
+	plant.setPosition(position);
+	world.getCell(position).setPlant(plant);
+	
+	int last = plant.getEnergy();
+	int cycles = 10; // suffisamment pour atteindre et tester le plafond
+	for (int i = 0; i < cycles; i++) {
+		plant.grow(world);
+		int current = plant.getEnergy();
+		assertTrue(current >= last, "L'énergie ne doit pas diminuer pendant la croissance (itération " + i + ")");
+		assertTrue(current <= MAX_PLANT_ENERGY, "L'énergie ne doit jamais dépasser " + MAX_PLANT_ENERGY + " (itération " + i + ")");
+		last = current;
+	}
+	assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Après suffisamment de cycles la plante doit atteindre le maximum exactement");
 }
 
 /**
@@ -163,7 +163,7 @@ public void testPlantCanReproduceDiagonalOnlyButSpawnFails() {
 	parent.setPosition(center);
 	world.getCell(center).setPlant(parent);
 	// Bloquer les 4 cardinaux
-	for (Position p : new Position[]{new Position(2,1), new Position(2,3), new Position(1,2), new Position(3,2)}) {
+	for (Position p : new Position[]{new Position(2, 1), new Position(2, 3), new Position(1, 2), new Position(3, 2)}) {
 		Plant blocker = new Plant(1);
 		blocker.setPosition(p);
 		world.getCell(p).setPlant(blocker);
@@ -180,13 +180,13 @@ public void testPlantCanReproduceDiagonalOnlyButSpawnFails() {
  */
 @Test
 public void testPlantCannotReproduceLowEnergy() {
-    Plant parent = new Plant(2); // énergie insuffisante
-    Position center = new Position(3, 3);
-    parent.setPosition(center);
-    world.getCell(center).setPlant(parent);
-    assertFalse(parent.canReproduce(world), "canReproduce doit être false si énergie < 3 (implémentez Plant.canReproduce)");
-    boolean spawned = parent.spawn(world);
-    assertFalse(spawned, "spawn doit échouer si énergie insuffisante (implémentez Plant.spawn)");
-    assertEquals(2, parent.getEnergy(), "Énergie ne doit pas être modifiée après un spawn échoué (implémentez Plant.spawn)");
+	Plant parent = new Plant(2); // énergie insuffisante
+	Position center = new Position(3, 3);
+	parent.setPosition(center);
+	world.getCell(center).setPlant(parent);
+	assertFalse(parent.canReproduce(world), "canReproduce doit être false si énergie < 3 (implémentez Plant.canReproduce)");
+	boolean spawned = parent.spawn(world);
+	assertFalse(spawned, "spawn doit échouer si énergie insuffisante (implémentez Plant.spawn)");
+	assertEquals(2, parent.getEnergy(), "Énergie ne doit pas être modifiée après un spawn échoué (implémentez Plant.spawn)");
 }
 }

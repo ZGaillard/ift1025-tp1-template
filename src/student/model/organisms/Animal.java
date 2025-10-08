@@ -6,7 +6,6 @@
  * ========================================================================== */
 package student.model.organisms;
 
-import prof.utils.RandomGenerator;
 import student.model.behaviors.Eater;
 import student.model.behaviors.Movable;
 import student.model.behaviors.Perceptive;
@@ -32,6 +31,7 @@ public abstract class Animal extends Organism implements Perceptive, Movable, Ea
 //=============================================================================
 //                               Construction
 //=============================================================================
+
 /**
  * Construct an animal with initial energy.
  *
@@ -44,6 +44,7 @@ public Animal(int energy) {
 //=============================================================================
 //                                Perception
 //=============================================================================
+
 /**
  * Return vision range radius (override to extend).
  *
@@ -58,7 +59,7 @@ public int visionRange() {
  * Compute positions within vision range excluding the current cell.
  *
  * @param world world context
- * @param pos origin position
+ * @param pos   origin position
  * @return list of perceived positions (never {@code null})
  */
 @Override
@@ -70,11 +71,12 @@ public List<Position> perceive(World world, Position pos) {
 //=============================================================================
 //                                Movement
 //=============================================================================
+
 /**
  * Choose a random empty neighboring cell inside vision range.
  *
  * @param world world context
- * @param pos current position
+ * @param pos   current position
  * @return chosen destination cell or {@code null}
  */
 @Override
@@ -86,6 +88,7 @@ public Cell chooseMove(World world, Position pos) {
 //=============================================================================
 //                                 Feeding
 //=============================================================================
+
 /**
  * Determine if this animal can consume the given cell contents.
  *
@@ -98,7 +101,7 @@ public abstract boolean canEat(Cell cell);
 /**
  * Consume target cell contents if allowed.
  *
- * @param cell target cell
+ * @param cell  target cell
  * @param world world context
  */
 @Override
@@ -107,6 +110,7 @@ public abstract void eat(Cell cell, World world);
 //=============================================================================
 //                               Reproduction
 //=============================================================================
+
 /**
  * Return whether reproduction conditions are satisfied (default energy check).
  *

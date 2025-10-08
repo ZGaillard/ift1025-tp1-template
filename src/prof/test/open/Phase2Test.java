@@ -2,7 +2,7 @@
 // author: Zakary Gaillard-D.
 // date: 2025-10-06
 // purpose: Public tests for phase 2 (herbivore movement)
-/**
+/*
  * Public tests for phase 2 (herbivore movement).
  * These tests validate the herbivore movement phase of the simulation,
  * ensuring herbivores can move and interact properly with their environment.
@@ -49,14 +49,14 @@ public void setUp() {
  */
 @Test
 public void testPhaseHerbivoresMovement() {
-    // Herbivore sans plante autour doit se déplacer (s'il y a de l'espace) et perdre 1 énergie
-    final Position start = new Position(5, 5);
-    final Herbivore h = new Herbivore(8);
-    h.setPosition(start);
-    world.getCell(start).setAnimal(h);
-    controller.phaseHerbivores();
-    assertNotEquals(start, h.getPosition(), "L'herbivore devrait se déplacer s'il y a de l'espace (implémentez phaseHerbivores)");
-    assertEquals(7, h.getEnergy(), "Énergie devrait diminuer de 1 après déplacement (implémentez coût énergie phaseHerbivores)");
+	// Herbivore sans plante autour doit se déplacer (s'il y a de l'espace) et perdre 1 énergie
+	final Position start = new Position(5, 5);
+	final Herbivore h = new Herbivore(8);
+	h.setPosition(start);
+	world.getCell(start).setAnimal(h);
+	controller.phaseHerbivores();
+	assertNotEquals(start, h.getPosition(), "L'herbivore devrait se déplacer s'il y a de l'espace (implémentez phaseHerbivores)");
+	assertEquals(7, h.getEnergy(), "Énergie devrait diminuer de 1 après déplacement (implémentez coût énergie phaseHerbivores)");
 }
 
 /**
@@ -65,7 +65,7 @@ public void testPhaseHerbivoresMovement() {
  */
 @Test
 public void testPhaseHerbivoresEmptyWorld() {
-    assertDoesNotThrow(() -> controller.phaseHerbivores());
+	assertDoesNotThrow(() -> controller.phaseHerbivores());
 }
 
 /**
@@ -74,19 +74,19 @@ public void testPhaseHerbivoresEmptyWorld() {
  */
 @Test
 public void testPhaseHerbivoresEating() {
-    final Position herbivorePosition = new Position(5, 5);
-    final Position plantPosition = new Position(5, 6);
-    final Herbivore herbivore = new Herbivore(4); // énergie initiale 4
-    herbivore.setPosition(herbivorePosition);
-    final Plant plant = new Plant(3); // nutrition 3
-    plant.setPosition(plantPosition);
-    world.getCell(herbivorePosition).setAnimal(herbivore);
-    world.getCell(plantPosition).setPlant(plant);
-    controller.phaseHerbivores();
-    assertEquals(herbivorePosition.distanceTo(plantPosition), 1);
-    assertEquals(6, herbivore.getEnergy(), "Énergie finale attendue 4 -1 +3 = 6 (implémentez déplacement + alimentation)");
-    assertEquals(plantPosition, herbivore.getPosition(), "Herbivore doit se déplacer sur la plante (implémentez move/eat)");
-    assertFalse(world.getCell(plantPosition).hasPlant(), "Plante consommée doit disparaître (implémentez suppression plante)");
+	final Position herbivorePosition = new Position(5, 5);
+	final Position plantPosition = new Position(5, 6);
+	final Herbivore herbivore = new Herbivore(4); // énergie initiale 4
+	herbivore.setPosition(herbivorePosition);
+	final Plant plant = new Plant(3); // nutrition 3
+	plant.setPosition(plantPosition);
+	world.getCell(herbivorePosition).setAnimal(herbivore);
+	world.getCell(plantPosition).setPlant(plant);
+	controller.phaseHerbivores();
+	assertEquals(1, herbivorePosition.distanceTo(plantPosition));
+	assertEquals(6, herbivore.getEnergy(), "Énergie finale attendue 4 -1 +3 = 6 (implémentez déplacement + alimentation)");
+	assertEquals(plantPosition, herbivore.getPosition(), "Herbivore doit se déplacer sur la plante (implémentez move/eat)");
+	assertFalse(world.getCell(plantPosition).hasPlant(), "Plante consommée doit disparaître (implémentez suppression plante)");
 }
 
 /**
@@ -95,18 +95,18 @@ public void testPhaseHerbivoresEating() {
  */
 @Test
 public void testPhaseHerbivoresBlockedLoseEnergy() {
-    // Herbivore bloqué sur (0,0) doit perdre 1 énergie et ne pas bouger
-    final Herbivore h = new Herbivore(5);
-    final Position center = new Position(0, 0);
-    h.setPosition(center);
-    world.getCell(center).setAnimal(h);
-    for (Position p : new Position[]{new Position(1,0), new Position(0,1), new Position(1,1)}) {
-        Herbivore blocker = new Herbivore(3);
-        blocker.setPosition(p);
-        world.getCell(p).setAnimal(blocker);
-    }
-    controller.phaseHerbivores();
-    assertEquals(center, h.getPosition(), "Bloqué: la position ne doit pas changer (implémentez détection blocage)");
-    assertEquals(4, h.getEnergy(), "Bloqué: énergie -1 (implémentez décrément énergie)");
+	// Herbivore bloqué sur (0,0) doit perdre 1 énergie et ne pas bouger
+	final Herbivore h = new Herbivore(5);
+	final Position center = new Position(0, 0);
+	h.setPosition(center);
+	world.getCell(center).setAnimal(h);
+	for (Position p : new Position[]{new Position(1, 0), new Position(0, 1), new Position(1, 1)}) {
+		Herbivore blocker = new Herbivore(3);
+		blocker.setPosition(p);
+		world.getCell(p).setAnimal(blocker);
+	}
+	controller.phaseHerbivores();
+	assertEquals(center, h.getPosition(), "Bloqué: la position ne doit pas changer (implémentez détection blocage)");
+	assertEquals(4, h.getEnergy(), "Bloqué: énergie -1 (implémentez décrément énergie)");
 }
 }

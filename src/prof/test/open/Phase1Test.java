@@ -11,7 +11,8 @@ import student.model.core.Position;
 import student.model.core.World;
 import student.model.organisms.Plant;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Public tests for phase 1 (plant growth).
@@ -43,17 +44,17 @@ public void setUp() {
  */
 @Test
 public void testPhasePlantGrowthWithSomePlants() {
-    final Position position1 = new Position(2, 2);
-    final Position position2 = new Position(5, 5);
-    final Plant plant1 = new Plant(INITIAL_PLANT_ENERGY - 1); // 1 -> doit devenir 2
-    plant1.setPosition(position1);
-    final Plant plant2 = new Plant(MAX_PLANT_ENERGY); // déjà au max
-    plant2.setPosition(position2);
-    world.getCell(position1).setPlant(plant1);
-    world.getCell(position2).setPlant(plant2);
-    controller.phasePlantGrowth();
-    assertEquals(2, plant1.getEnergy(), "Une plante < max doit croître exactement de +1");
-    assertEquals(MAX_PLANT_ENERGY, plant2.getEnergy(), "Une plante au max ne doit pas dépasser le plafond");
+	final Position position1 = new Position(2, 2);
+	final Position position2 = new Position(5, 5);
+	final Plant plant1 = new Plant(INITIAL_PLANT_ENERGY - 1); // 1 -> doit devenir 2
+	plant1.setPosition(position1);
+	final Plant plant2 = new Plant(MAX_PLANT_ENERGY); // déjà au max
+	plant2.setPosition(position2);
+	world.getCell(position1).setPlant(plant1);
+	world.getCell(position2).setPlant(plant2);
+	controller.phasePlantGrowth();
+	assertEquals(2, plant1.getEnergy(), "Une plante < max doit croître exactement de +1");
+	assertEquals(MAX_PLANT_ENERGY, plant2.getEnergy(), "Une plante au max ne doit pas dépasser le plafond");
 }
 
 /**
@@ -71,32 +72,32 @@ public void testPhasePlantGrowthEmptyWorld() {
  */
 @Test
 public void testPhasePlantGrowthMaturePlant() {
-    final Position position = new Position(4, 4);
-    final Plant plant = new Plant(MAX_PLANT_ENERGY);
-    plant.setPosition(position);
-    world.getCell(position).setPlant(plant);
-    controller.phasePlantGrowth();
-    assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Plante mature doit rester au plafond");
+	final Position position = new Position(4, 4);
+	final Plant plant = new Plant(MAX_PLANT_ENERGY);
+	plant.setPosition(position);
+	world.getCell(position).setPlant(plant);
+	controller.phasePlantGrowth();
+	assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Plante mature doit rester au plafond");
 }
 
 @Test
 public void testPhasePlantGrowthDeadPlantDoesNotGrow() {
-    final Position position = new Position(3, 3);
-    final Plant plant = new Plant(2);
-    plant.setPosition(position);
-    world.getCell(position).setPlant(plant);
-    plant.setEnergy(0); // morte
-    controller.phasePlantGrowth();
-    assertEquals(0, plant.getEnergy(), "Plante morte ne doit pas pousser");
+	final Position position = new Position(3, 3);
+	final Plant plant = new Plant(2);
+	plant.setPosition(position);
+	world.getCell(position).setPlant(plant);
+	plant.setEnergy(0); // morte
+	controller.phasePlantGrowth();
+	assertEquals(0, plant.getEnergy(), "Plante morte ne doit pas pousser");
 }
 
 @Test
 public void testPhasePlantGrowthClampAfterMultipleCycles() {
-    final Position position = new Position(6, 6);
-    final Plant plant = new Plant(1);
-    plant.setPosition(position);
-    world.getCell(position).setPlant(plant);
-    for (int i = 0; i < 10; i++) controller.phasePlantGrowth();
-    assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Croissance répétée doit rester clampée à max");
+	final Position position = new Position(6, 6);
+	final Plant plant = new Plant(1);
+	plant.setPosition(position);
+	world.getCell(position).setPlant(plant);
+	for (int i = 0; i < 10; i++) controller.phasePlantGrowth();
+	assertEquals(MAX_PLANT_ENERGY, plant.getEnergy(), "Croissance répétée doit rester clampée à max");
 }
 }

@@ -14,16 +14,16 @@ import student.model.core.World;
  * detected. Implementations decide what constitutes a predator and the heuristic for safety.
  */
 public interface Fleeing {
-    //=============================================================================
-    //                                   Contract
-    //=============================================================================
+//=============================================================================
+//                                   Contract
+//=============================================================================
 
-    /**
-     * Choose a position to move to in order to flee, or return {@code null} to remain in place
-     * when no better option is available.
-     *
-     * @param world current world context
-     * @return target position or {@code null} if staying is chosen
-     */
-    Position chooseFlee(World world);
+/**
+ * Choose a position to move to in order to flee, or return {@code null} to remain in place
+ * when no better option is available.
+ *
+ * @param world current world context
+ * @return target position or {@code null} if staying is chosen
+ */
+Position chooseFlee(World world);
 }

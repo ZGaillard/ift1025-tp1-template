@@ -12,54 +12,54 @@ package student.model.behaviors;
  * incremental addition and subtraction without altering the underlying contract.</p>
  */
 public interface Energetic {
-    //=============================================================================
-    //                                   Accessors
-    //=============================================================================
+//=============================================================================
+//                                   Accessors
+//=============================================================================
 
-    /**
-     * Return current energy value.
-     *
-     * @return non-negative (unless implementation allows debt) energy amount
-     */
-    int getEnergy();
+/**
+ * Return current energy value.
+ *
+ * @return non-negative (unless implementation allows debt) energy amount
+ */
+int getEnergy();
 
-    /**
-     * Set the current energy value.
-     *
-     * @param value new absolute energy value
-     */
-    void setEnergy(int value);
+/**
+ * Set the current energy value.
+ *
+ * @param value new absolute energy value
+ */
+void setEnergy(int value);
 
-    //=============================================================================
-    //                                  Mutators
-    //=============================================================================
+//=============================================================================
+//                                  Mutators
+//=============================================================================
 
-    /**
-     * Add (increase) a positive or negative delta to the energy pool.
-     *
-     * @param delta energy to add (may be negative for convenience)
-     */
-    default void addEnergy(int delta) { // DONOTTOUCH[behavior] (MAINTAINER, 2025-10-06): Keep side effects.
-        setEnergy(getEnergy() + delta);
-    }
+/**
+ * Add (increase) a positive or negative delta to the energy pool.
+ *
+ * @param delta energy to add (may be negative for convenience)
+ */
+default void addEnergy(int delta) { // DONOTTOUCH[behavior] (MAINTAINER, 2025-10-06): Keep side effects.
+	setEnergy(getEnergy() + delta);
+}
 
-    /**
-     * Subtract the provided cost from the energy pool.
-     *
-     * @param cost energy to remove
-     */
-    default void subEnergy(int cost) { // DONOTTOUCH[behavior] (MAINTAINER, 2025-10-06): Keep side effects.
-        setEnergy(getEnergy() - cost);
-    }
+/**
+ * Subtract the provided cost from the energy pool.
+ *
+ * @param cost energy to remove
+ */
+default void subEnergy(int cost) { // DONOTTOUCH[behavior] (MAINTAINER, 2025-10-06): Keep side effects.
+	setEnergy(getEnergy() - cost);
+}
 
-    //=============================================================================
-    //                                   State
-    //=============================================================================
+//=============================================================================
+//                                   State
+//=============================================================================
 
-    /**
-     * Determine whether the entity is still alive according to its energy rules.
-     *
-     * @return {@code true} if alive and eligible for further updates
-     */
-    boolean isAlive();
+/**
+ * Determine whether the entity is still alive according to its energy rules.
+ *
+ * @return {@code true} if alive and eligible for further updates
+ */
+boolean isAlive();
 }

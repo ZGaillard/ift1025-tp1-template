@@ -14,31 +14,31 @@ import student.model.organisms.Organism;
  * into the world if spawning succeeds.
  */
 public interface Reproducible {
-    //=============================================================================
-    //                                   Contract
-    //=============================================================================
+//=============================================================================
+//                                   Contract
+//=============================================================================
 
-    /**
-     * Determine whether current reproduction conditions are satisfied.
-     *
-     * @param world current world context
-     * @return {@code true} if reproduction may proceed
-     */
-    boolean canReproduce(World world);
+/**
+ * Determine whether current reproduction conditions are satisfied.
+ *
+ * @param world current world context
+ * @return {@code true} if reproduction may proceed
+ */
+boolean canReproduce(World world);
 
-    /**
-     * Create a new offspring organism (not yet placed in the world). Implementations decide the
-     * initialization parameters of the child.
-     *
-     * @return newly created organism instance (never placed automatically)
-     */
-    Organism reproduce();
+/**
+ * Create a new offspring organism (not yet placed in the world). Implementations decide the
+ * initialization parameters of the child.
+ *
+ * @return newly created organism instance (never placed automatically)
+ */
+Organism reproduce();
 
-    /**
-     * Attempt to place the previously created offspring into a free neighboring cell.
-     *
-     * @param world current world context
-     * @return {@code true} if placement succeeds
-     */
-    boolean spawn(World world);
+/**
+ * Attempt to place the previously created offspring into a free neighboring cell.
+ *
+ * @param world current world context
+ * @return {@code true} if placement succeeds
+ */
+boolean spawn(World world);
 }

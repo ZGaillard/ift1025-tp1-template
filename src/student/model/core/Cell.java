@@ -19,156 +19,161 @@ public class Cell {
 //=============================================================================
 //                                   Fields
 //=============================================================================
-    private final Position position;
-    private Animal animal;
-    private Plant plant;
+private final Position position;
+private Animal animal;
+private Plant plant;
 
 //=============================================================================
 //                               Construction
 //=============================================================================
-    /**
-     * Construct a cell at the provided immutable {@link Position}.
-     *
-     * @param position non-null grid coordinates reference
-     */
-    public Cell(final Position position) {
-        this.position = position; // DONOTTOUCH[core] (MAINTAINER, 2025-10-06): Positional reference only.
-    }
+
+/**
+ * Construct a cell at the provided immutable {@link Position}.
+ *
+ * @param position non-null grid coordinates reference
+ */
+public Cell(final Position position) {
+	this.position = position; // DONOTTOUCH[core] (MAINTAINER, 2025-10-06): Positional reference only.
+}
 
 //=============================================================================
 //                               Accessors
 //=============================================================================
-    /**
-     * Return this cell's position.
-     *
-     * @return immutable position handle
-     */
-    public Position getPosition() {
-        return position;
-    }
 
-    //=============================================================================
-    //                                 Animals
-    //=============================================================================
-    /**
-     * Return whether an animal occupies the animal slot.
-     *
-     * @return {@code true} if an animal is present
-     */
-    public boolean hasAnimal() {
-        return animal != null;
-    }
+/**
+ * Return this cell's position.
+ *
+ * @return immutable position handle
+ */
+public Position getPosition() {
+	return position;
+}
 
-    /**
-     * Return the resident animal or {@code null}.
-     *
-     * @return current animal or {@code null}
-     */
-    public Animal getAnimal() {
-        return animal;
-    }
+//=============================================================================
+//                                 Animals
+//=============================================================================
 
-    /**
-     * Set (overwrite) the resident animal reference.
-     *
-     * @param animal animal to store (may be {@code null})
-     */
-    public void setAnimal(final Animal animal) {
-        this.animal = animal;
-    }
+/**
+ * Return whether an animal occupies the animal slot.
+ *
+ * @return {@code true} if an animal is present
+ */
+public boolean hasAnimal() {
+	return animal != null;
+}
 
-    /**
-     * Remove the resident animal (if any).
-     */
-    public void removeAnimal() {
-        this.animal = null;
-    }
+/**
+ * Return the resident animal or {@code null}.
+ *
+ * @return current animal or {@code null}
+ */
+public Animal getAnimal() {
+	return animal;
+}
 
-    /**
-     * Return whether the animal slot is currently empty.
-     *
-     * @return {@code true} if no animal reference
-     */
-    public boolean isEmptyAnimal() {
-        return animal == null;
-    }
+/**
+ * Set (overwrite) the resident animal reference.
+ *
+ * @param animal animal to store (may be {@code null})
+ */
+public void setAnimal(final Animal animal) {
+	this.animal = animal;
+}
 
-    //=============================================================================
-    //                                  Plants
-    //=============================================================================
-    /**
-     * Return whether a plant occupies the plant slot.
-     *
-     * @return {@code true} if a plant is present
-     */
-    public boolean hasPlant() {
-        return plant != null;
-    }
+/**
+ * Remove the resident animal (if any).
+ */
+public void removeAnimal() {
+	this.animal = null;
+}
 
-    /**
-     * Return the resident plant or {@code null}.
-     *
-     * @return current plant or {@code null}
-     */
-    public Plant getPlant() {
-        return plant;
-    }
+/**
+ * Return whether the animal slot is currently empty.
+ *
+ * @return {@code true} if no animal reference
+ */
+public boolean isEmptyAnimal() {
+	return animal == null;
+}
 
-    /**
-     * Set (overwrite) the resident plant reference.
-     *
-     * @param plant plant to store (may be {@code null})
-     */
-    public void setPlant(final Plant plant) {
-        this.plant = plant;
-    }
+//=============================================================================
+//                                  Plants
+//=============================================================================
 
-    /**
-     * Remove the resident plant (if any).
-     */
-    public void removePlant() {
-        this.plant = null;
-    }
+/**
+ * Return whether a plant occupies the plant slot.
+ *
+ * @return {@code true} if a plant is present
+ */
+public boolean hasPlant() {
+	return plant != null;
+}
 
-    /**
-     * Return whether the plant slot is currently empty.
-     *
-     * @return {@code true} if no plant reference
-     */
-    public boolean isEmptyPlant() {
-        return plant == null;
-    }
+/**
+ * Return the resident plant or {@code null}.
+ *
+ * @return current plant or {@code null}
+ */
+public Plant getPlant() {
+	return plant;
+}
 
-    //=============================================================================
-    //                                  General
-    //=============================================================================
-    /**
-     * Return whether both animal and plant slots are empty.
-     *
-     * @return {@code true} if cell has no occupants
-     */
-    public boolean isCompletelyEmpty() {
-        return animal == null && plant == null;
-    }
+/**
+ * Set (overwrite) the resident plant reference.
+ *
+ * @param plant plant to store (may be {@code null})
+ */
+public void setPlant(final Plant plant) {
+	this.plant = plant;
+}
 
-    /**
-     * Alias for {@link #isCompletelyEmpty()} kept for backward compatibility.
-     *
-     * @return {@code true} if cell has no occupants
-     */
-    public boolean isEmpty() {
-        return isCompletelyEmpty();
-    }
+/**
+ * Remove the resident plant (if any).
+ */
+public void removePlant() {
+	this.plant = null;
+}
 
-    /**
-     * Return whichever organism is present prioritizing the animal slot, or {@code null} if empty.
-     * <p>This compatibility helper is used by legacy code expecting a single occupant abstraction.</p>
-     *
-     * @return {@link Animal}, {@link Plant}, or {@code null}
-     */
-    public Organism getOrganism() {
-        if (animal != null) return animal;
-        if (plant != null) return plant;
-        return null;
-    }
+/**
+ * Return whether the plant slot is currently empty.
+ *
+ * @return {@code true} if no plant reference
+ */
+public boolean isEmptyPlant() {
+	return plant == null;
+}
+
+//=============================================================================
+//                                  General
+//=============================================================================
+
+/**
+ * Return whether both animal and plant slots are empty.
+ *
+ * @return {@code true} if cell has no occupants
+ */
+public boolean isCompletelyEmpty() {
+	return animal == null && plant == null;
+}
+
+/**
+ * Alias for {@link #isCompletelyEmpty()} kept for backward compatibility.
+ *
+ * @return {@code true} if cell has no occupants
+ */
+public boolean isEmpty() {
+	return isCompletelyEmpty();
+}
+
+/**
+ * Return whichever organism is present prioritizing the animal slot, or {@code null} if empty.
+ * <p>This compatibility helper is used by legacy code expecting a single occupant abstraction.</p>
+ *
+ * @return {@link Animal}, {@link Plant}, or {@code null}
+ */
+public Organism getOrganism() {
+	if (animal != null) return animal;
+	if (plant != null) return plant;
+	return null;
+}
 }

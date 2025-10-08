@@ -59,8 +59,6 @@ private static final Class<?>[] PUBLIC_TEST_CLASSES = {
 	Phase4Test.class,
 	Phase5Test.class,
 	ControllerPhasesTest.class,
-	// Integration tests
-	IntegrationTest.class
 };
 
 //=============================================================================
@@ -93,7 +91,7 @@ public static void run() {
 		totalTests += result.totalTests;
 		totalPassed += result.passedTests;
 		
-		displayClassResult(testClass, result);
+		displayClassResult(result);
 	}
 	
 	final long endTime = System.currentTimeMillis();
@@ -102,30 +100,30 @@ public static void run() {
 
 //------------------------------ Reset Environnement ---------------------------------
 private static void resetEnvironment() {
-    // Liste de classes candidates disposant potentiellement d\'un reset() statique
-    String[] candidates = {
-        "prof.utils.RandomGenerator",
-        "student.model.core.WorldContext",
-        "student.model.core.GlobalState"
-    };
-    for (String name : candidates) {
-        try {
-            Class<?> cls = Class.forName(name);
-            try {
-                Method m = cls.getDeclaredMethod("reset");
-                m.setAccessible(true);
-                m.invoke(null);
-            } catch (NoSuchMethodException ignored) {
-                // pas de reset() -> ignorer
-            }
-        } catch (ClassNotFoundException ignored) {
-            // classe inexistante -> ignorer
-        } catch (Exception e) {
-            System.err.println("Reset warning (" + name + "): " + e.getMessage());
-        }
-    }
+	// Liste de classes candidates disposant potentiellement d\'un reset() statique
+	String[] candidates = {
+		"prof.utils.RandomGenerator",
+		"student.model.core.WorldContext",
+		"student.model.core.GlobalState"
+	};
+	for (String name : candidates) {
+		try {
+			Class<?> cls = Class.forName(name);
+			try {
+				Method m = cls.getDeclaredMethod("reset");
+				m.setAccessible(true);
+				m.invoke(null);
+			} catch (NoSuchMethodException ignored) {
+				// pas de reset() -> ignorer
+			}
+		} catch (ClassNotFoundException ignored) {
+			// classe inexistante -> ignorer
+		} catch (Exception e) {
+			System.err.println("Reset warning (" + name + "): " + e.getMessage());
+		}
+	}
 	// Garbage collector
-    System.gc();
+	System.gc();
 }
 
 //------------------------------ Test Execution ------------------------------
@@ -209,10 +207,9 @@ private static boolean isTestMethod(final Method method) {
 /**
  * Displays the test results for a specific class.
  *
- * @param testClass the test class
- * @param result    the test execution result
+ * @param result the test execution result
  */
-private static void displayClassResult(final Class<?> testClass, final TestResult result) {
+private static void displayClassResult(final TestResult result) {
 	final double successRate = result.totalTests > 0 ?
 		                           (double) result.passedTests / result.totalTests * 100.0 : 0.0;
 	

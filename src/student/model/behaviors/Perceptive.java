@@ -21,23 +21,23 @@ import java.util.List;
  * </ul>
  */
 public interface Perceptive {
-    //=============================================================================
-    //                                   Contract
-    //=============================================================================
+//=============================================================================
+//                                   Contract
+//=============================================================================
 
-    /**
-     * Return the maximum vision range level used to compute perceivable positions.
-     *
-     * @return vision level (implementation-defined positive integer)
-     */
-    int visionRange();
+/**
+ * Return the maximum vision range level used to compute perceivable positions.
+ *
+ * @return vision level (implementation-defined positive integer)
+ */
+int visionRange();
 
-    /**
-     * Return the list of perceivable positions given the world and current position.
-     *
-     * @param world world context used to validate bounds and contents
-     * @param pos   current position of the perceiving entity
-     * @return immutable or caller-safe list of visible positions (ordering is implementation-defined)
-     */
-    List<Position> perceive(World world, Position pos);
+/**
+ * Return the list of perceivable positions given the world and current position.
+ *
+ * @param world world context used to validate bounds and contents
+ * @param pos   current position of the perceiving entity
+ * @return immutable or caller-safe list of visible positions (ordering is implementation-defined)
+ */
+List<Position> perceive(World world, Position pos);
 }

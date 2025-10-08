@@ -73,57 +73,57 @@ public void testPhaseCleanupWithDeadOrganisms() {
  */
 @Test
 public void testCleanupRemovesOnlyDead() {
-    // Positions
-    Position deadPlantPos = new Position(2, 2);
-    Position livePlantPos = new Position(2, 3);
-    Position deadHerbPos  = new Position(4, 4);
-    Position liveHerbPos  = new Position(4, 5);
-    Position deadCarnPos  = new Position(6, 6);
-    Position liveCarnPos  = new Position(6, 5);
-
-    // Dead plant
-    Plant deadPlant = new Plant(2);
-    deadPlant.setPosition(deadPlantPos);
-    deadPlant.setEnergy(0); // mort
-    world.getCell(deadPlantPos).setPlant(deadPlant);
-
-    // Live plant
-    Plant livePlant = new Plant(2);
-    livePlant.setPosition(livePlantPos);
-    world.getCell(livePlantPos).setPlant(livePlant);
-
-    // Dead herbivore
-    Herbivore deadHerb = new Herbivore(3);
-    deadHerb.setPosition(deadHerbPos);
-    deadHerb.setEnergy(0);
-    world.getCell(deadHerbPos).setAnimal(deadHerb);
-
-    // Live herbivore
-    Herbivore liveHerb = new Herbivore(5);
-    liveHerb.setPosition(liveHerbPos);
-    world.getCell(liveHerbPos).setAnimal(liveHerb);
-
-    // Dead carnivore
-    Carnivore deadCarn = new Carnivore(4);
-    deadCarn.setPosition(deadCarnPos);
-    deadCarn.setEnergy(0);
-    world.getCell(deadCarnPos).setAnimal(deadCarn);
-
-    // Live carnivore
-    Carnivore liveCarn = new Carnivore(8);
-    liveCarn.setPosition(liveCarnPos);
-    world.getCell(liveCarnPos).setAnimal(liveCarn);
-
-    controller.phaseCleanup();
-
-    // Dead removed
-    assertFalse(world.getCell(deadPlantPos).hasPlant(), "Plante morte doit être retirée (implémentez phaseCleanup)");
-    assertFalse(world.getCell(deadHerbPos).hasAnimal(), "Herbivore mort doit être retiré");
-    assertFalse(world.getCell(deadCarnPos).hasAnimal(), "Carnivore mort doit être retiré");
-    // Alive preserved
-    assertTrue(world.getCell(livePlantPos).hasPlant(), "Plante vivante ne doit pas être retirée");
-    assertTrue(world.getCell(liveHerbPos).hasAnimal(), "Herbivore vivant ne doit pas être retiré");
-    assertTrue(world.getCell(liveCarnPos).hasAnimal(), "Carnivore vivant ne doit pas être retiré");
+	// Positions
+	Position deadPlantPos = new Position(2, 2);
+	Position livePlantPos = new Position(2, 3);
+	Position deadHerbPos = new Position(4, 4);
+	Position liveHerbPos = new Position(4, 5);
+	Position deadCarnPos = new Position(6, 6);
+	Position liveCarnPos = new Position(6, 5);
+	
+	// Dead plant
+	Plant deadPlant = new Plant(2);
+	deadPlant.setPosition(deadPlantPos);
+	deadPlant.setEnergy(0); // mort
+	world.getCell(deadPlantPos).setPlant(deadPlant);
+	
+	// Live plant
+	Plant livePlant = new Plant(2);
+	livePlant.setPosition(livePlantPos);
+	world.getCell(livePlantPos).setPlant(livePlant);
+	
+	// Dead herbivore
+	Herbivore deadHerb = new Herbivore(3);
+	deadHerb.setPosition(deadHerbPos);
+	deadHerb.setEnergy(0);
+	world.getCell(deadHerbPos).setAnimal(deadHerb);
+	
+	// Live herbivore
+	Herbivore liveHerb = new Herbivore(5);
+	liveHerb.setPosition(liveHerbPos);
+	world.getCell(liveHerbPos).setAnimal(liveHerb);
+	
+	// Dead carnivore
+	Carnivore deadCarn = new Carnivore(4);
+	deadCarn.setPosition(deadCarnPos);
+	deadCarn.setEnergy(0);
+	world.getCell(deadCarnPos).setAnimal(deadCarn);
+	
+	// Live carnivore
+	Carnivore liveCarn = new Carnivore(8);
+	liveCarn.setPosition(liveCarnPos);
+	world.getCell(liveCarnPos).setAnimal(liveCarn);
+	
+	controller.phaseCleanup();
+	
+	// Dead removed
+	assertFalse(world.getCell(deadPlantPos).hasPlant(), "Plante morte doit être retirée (implémentez phaseCleanup)");
+	assertFalse(world.getCell(deadHerbPos).hasAnimal(), "Herbivore mort doit être retiré");
+	assertFalse(world.getCell(deadCarnPos).hasAnimal(), "Carnivore mort doit être retiré");
+	// Alive preserved
+	assertTrue(world.getCell(livePlantPos).hasPlant(), "Plante vivante ne doit pas être retirée");
+	assertTrue(world.getCell(liveHerbPos).hasAnimal(), "Herbivore vivant ne doit pas être retiré");
+	assertTrue(world.getCell(liveCarnPos).hasAnimal(), "Carnivore vivant ne doit pas être retiré");
 }
 
 /**
@@ -131,21 +131,27 @@ public void testCleanupRemovesOnlyDead() {
  */
 @Test
 public void testCleanupIdempotent() {
-    Position pPos = new Position(1,1);
-    Plant deadPlant = new Plant(2); deadPlant.setPosition(pPos); deadPlant.setEnergy(0); world.getCell(pPos).setPlant(deadPlant);
-    Position aPos = new Position(2,2);
-    Herbivore deadHerb = new Herbivore(3); deadHerb.setPosition(aPos); deadHerb.setEnergy(0); world.getCell(aPos).setAnimal(deadHerb);
-
-    controller.phaseCleanup();
-    // Snapshot after first cleanup
-    boolean plantGoneFirst = !world.getCell(pPos).hasPlant();
-    boolean herbGoneFirst  = !world.getCell(aPos).hasAnimal();
-    assertTrue(plantGoneFirst && herbGoneFirst, "Première passe doit retirer les morts");
-
-    controller.phaseCleanup(); // seconde passe
-    // Doit rester identique
-    assertEquals(plantGoneFirst, !world.getCell(pPos).hasPlant(), "Aucun changement sur plante après seconde passe");
-    assertEquals(herbGoneFirst, !world.getCell(aPos).hasAnimal(), "Aucun changement sur animal après seconde passe");
+	Position pPos = new Position(1, 1);
+	Plant deadPlant = new Plant(2);
+	deadPlant.setPosition(pPos);
+	deadPlant.setEnergy(0);
+	world.getCell(pPos).setPlant(deadPlant);
+	Position aPos = new Position(2, 2);
+	Herbivore deadHerb = new Herbivore(3);
+	deadHerb.setPosition(aPos);
+	deadHerb.setEnergy(0);
+	world.getCell(aPos).setAnimal(deadHerb);
+	
+	controller.phaseCleanup();
+	// Snapshot after first cleanup
+	boolean plantGoneFirst = !world.getCell(pPos).hasPlant();
+	boolean herbGoneFirst = !world.getCell(aPos).hasAnimal();
+	assertTrue(plantGoneFirst && herbGoneFirst, "Première passe doit retirer les morts");
+	
+	controller.phaseCleanup(); // seconde passe
+	// Doit rester identique
+	assertEquals(plantGoneFirst, !world.getCell(pPos).hasPlant(), "Aucun changement sur plante après seconde passe");
+	assertEquals(herbGoneFirst, !world.getCell(aPos).hasAnimal(), "Aucun changement sur animal après seconde passe");
 }
 
 /**
@@ -153,6 +159,6 @@ public void testCleanupIdempotent() {
  */
 @Test
 public void testCleanupEmptyWorldSafe() {
-    assertDoesNotThrow(() -> controller.phaseCleanup(), "Phase cleanup ne doit pas lever d'exception sur monde vide");
+	assertDoesNotThrow(() -> controller.phaseCleanup(), "Phase cleanup ne doit pas lever d'exception sur monde vide");
 }
 }

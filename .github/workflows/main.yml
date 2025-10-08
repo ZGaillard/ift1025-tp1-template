@@ -1,0 +1,42 @@
+name: Autograder
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  run-autograder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache Maven local repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
+
+      - name: Build (skip unit tests)
+        run: mvn -B -DskipTests package
+
+      - name: Run Autograder
+        run: mvn -q exec:java -Dexec.mainClass="prof.test.open.Autograder" | tee autograder.log
+
+      - name: Fail job if Autograder reports failures
+        shell: bash
+        run: |
+          FAILED=$(grep -oP 'Failed: \K\d+' autograder.log || echo 0)
+          if [ "$FAILED" -gt 0 ]; then
+            echo "::error::Autograder detected $FAILED failed test(s)"
+            exit 1
+          fi

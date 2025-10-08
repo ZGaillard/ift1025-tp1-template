@@ -4,9 +4,21 @@
     "height": 100
   },
   "plants": [
-    {"energy": 3, "posx": 23, "posy": 17},
-    {"energy": 2, "posx": 67, "posy": 42},
-    {"energy": 1, "posx": 89, "posy": 73}
+    {
+      "energy": 3,
+      "posx": 23,
+      "posy": 17
+    },
+    {
+      "energy": 2,
+      "posx": 67,
+      "posy": 42
+    },
+    {
+      "energy": 1,
+      "posx": 89,
+      "posy": 73
+    }
   ],
   "herbivores": [],
   "carnivores": []

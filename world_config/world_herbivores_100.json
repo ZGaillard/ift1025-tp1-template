@@ -4,205 +4,993 @@
     "height": 100
   },
   "plants": [
-    {"energy": 3, "posx": 5, "posy": 5},
-    {"energy": 2, "posx": 15, "posy": 5},
-    {"energy": 3, "posx": 25, "posy": 5},
-    {"energy": 2, "posx": 35, "posy": 5},
-    {"energy": 3, "posx": 45, "posy": 5},
-    {"energy": 2, "posx": 55, "posy": 5},
-    {"energy": 3, "posx": 65, "posy": 5},
-    {"energy": 2, "posx": 75, "posy": 5},
-    {"energy": 3, "posx": 85, "posy": 5},
-    {"energy": 2, "posx": 95, "posy": 5},
-    {"energy": 3, "posx": 5, "posy": 15},
-    {"energy": 2, "posx": 15, "posy": 15},
-    {"energy": 3, "posx": 25, "posy": 15},
-    {"energy": 2, "posx": 35, "posy": 15},
-    {"energy": 3, "posx": 45, "posy": 15},
-    {"energy": 2, "posx": 55, "posy": 15},
-    {"energy": 3, "posx": 65, "posy": 15},
-    {"energy": 2, "posx": 75, "posy": 15},
-    {"energy": 3, "posx": 85, "posy": 15},
-    {"energy": 2, "posx": 95, "posy": 15},
-    {"energy": 3, "posx": 5, "posy": 25},
-    {"energy": 2, "posx": 15, "posy": 25},
-    {"energy": 3, "posx": 25, "posy": 25},
-    {"energy": 2, "posx": 35, "posy": 25},
-    {"energy": 3, "posx": 45, "posy": 25},
-    {"energy": 2, "posx": 55, "posy": 25},
-    {"energy": 3, "posx": 65, "posy": 25},
-    {"energy": 2, "posx": 75, "posy": 25},
-    {"energy": 3, "posx": 85, "posy": 25},
-    {"energy": 2, "posx": 95, "posy": 25},
-    {"energy": 3, "posx": 5, "posy": 35},
-    {"energy": 2, "posx": 15, "posy": 35},
-    {"energy": 3, "posx": 25, "posy": 35},
-    {"energy": 2, "posx": 35, "posy": 35},
-    {"energy": 3, "posx": 45, "posy": 35},
-    {"energy": 2, "posx": 55, "posy": 35},
-    {"energy": 3, "posx": 65, "posy": 35},
-    {"energy": 2, "posx": 75, "posy": 35},
-    {"energy": 3, "posx": 85, "posy": 35},
-    {"energy": 2, "posx": 95, "posy": 35},
-    {"energy": 3, "posx": 5, "posy": 45},
-    {"energy": 2, "posx": 15, "posy": 45},
-    {"energy": 3, "posx": 25, "posy": 45},
-    {"energy": 2, "posx": 35, "posy": 45},
-    {"energy": 3, "posx": 45, "posy": 45},
-    {"energy": 2, "posx": 55, "posy": 45},
-    {"energy": 3, "posx": 65, "posy": 45},
-    {"energy": 2, "posx": 75, "posy": 45},
-    {"energy": 3, "posx": 85, "posy": 45},
-    {"energy": 2, "posx": 95, "posy": 45},
-    {"energy": 3, "posx": 5, "posy": 55},
-    {"energy": 2, "posx": 15, "posy": 55},
-    {"energy": 3, "posx": 25, "posy": 55},
-    {"energy": 2, "posx": 35, "posy": 55},
-    {"energy": 3, "posx": 45, "posy": 55},
-    {"energy": 2, "posx": 55, "posy": 55},
-    {"energy": 3, "posx": 65, "posy": 55},
-    {"energy": 2, "posx": 75, "posy": 55},
-    {"energy": 3, "posx": 85, "posy": 55},
-    {"energy": 2, "posx": 95, "posy": 55},
-    {"energy": 3, "posx": 5, "posy": 65},
-    {"energy": 2, "posx": 15, "posy": 65},
-    {"energy": 3, "posx": 25, "posy": 65},
-    {"energy": 2, "posx": 35, "posy": 65},
-    {"energy": 3, "posx": 45, "posy": 65},
-    {"energy": 2, "posx": 55, "posy": 65},
-    {"energy": 3, "posx": 65, "posy": 65},
-    {"energy": 2, "posx": 75, "posy": 65},
-    {"energy": 3, "posx": 85, "posy": 65},
-    {"energy": 2, "posx": 95, "posy": 65},
-    {"energy": 3, "posx": 5, "posy": 75},
-    {"energy": 2, "posx": 15, "posy": 75},
-    {"energy": 3, "posx": 25, "posy": 75},
-    {"energy": 2, "posx": 35, "posy": 75},
-    {"energy": 3, "posx": 45, "posy": 75},
-    {"energy": 2, "posx": 55, "posy": 75},
-    {"energy": 3, "posx": 65, "posy": 75},
-    {"energy": 2, "posx": 75, "posy": 75},
-    {"energy": 3, "posx": 85, "posy": 75},
-    {"energy": 2, "posx": 95, "posy": 75},
-    {"energy": 3, "posx": 5, "posy": 85},
-    {"energy": 2, "posx": 15, "posy": 85},
-    {"energy": 3, "posx": 25, "posy": 85},
-    {"energy": 2, "posx": 35, "posy": 85},
-    {"energy": 3, "posx": 45, "posy": 85},
-    {"energy": 2, "posx": 55, "posy": 85},
-    {"energy": 3, "posx": 65, "posy": 85},
-    {"energy": 2, "posx": 75, "posy": 85},
-    {"energy": 3, "posx": 85, "posy": 85},
-    {"energy": 2, "posx": 95, "posy": 85},
-    {"energy": 3, "posx": 5, "posy": 95},
-    {"energy": 2, "posx": 15, "posy": 95},
-    {"energy": 3, "posx": 25, "posy": 95},
-    {"energy": 2, "posx": 35, "posy": 95},
-    {"energy": 3, "posx": 45, "posy": 95},
-    {"energy": 2, "posx": 55, "posy": 95},
-    {"energy": 3, "posx": 65, "posy": 95},
-    {"energy": 2, "posx": 75, "posy": 95},
-    {"energy": 3, "posx": 85, "posy": 95},
-    {"energy": 2, "posx": 95, "posy": 95}
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 5
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 5
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 5
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 5
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 5
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 5
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 5
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 5
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 5
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 5
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 15
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 15
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 15
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 15
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 15
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 15
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 15
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 15
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 15
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 15
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 25
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 25
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 25
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 25
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 25
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 25
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 25
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 25
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 25
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 25
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 35
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 35
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 35
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 35
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 35
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 35
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 35
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 35
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 35
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 35
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 45
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 45
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 45
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 45
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 45
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 45
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 45
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 45
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 45
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 45
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 55
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 55
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 55
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 55
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 55
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 55
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 55
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 55
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 55
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 55
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 65
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 65
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 65
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 65
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 65
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 65
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 65
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 65
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 65
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 65
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 75
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 75
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 75
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 75
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 75
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 75
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 75
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 75
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 75
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 75
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 85
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 85
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 85
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 85
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 85
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 85
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 85
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 85
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 85
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 85
+    },
+    {
+      "energy": 3,
+      "posx": 5,
+      "posy": 95
+    },
+    {
+      "energy": 2,
+      "posx": 15,
+      "posy": 95
+    },
+    {
+      "energy": 3,
+      "posx": 25,
+      "posy": 95
+    },
+    {
+      "energy": 2,
+      "posx": 35,
+      "posy": 95
+    },
+    {
+      "energy": 3,
+      "posx": 45,
+      "posy": 95
+    },
+    {
+      "energy": 2,
+      "posx": 55,
+      "posy": 95
+    },
+    {
+      "energy": 3,
+      "posx": 65,
+      "posy": 95
+    },
+    {
+      "energy": 2,
+      "posx": 75,
+      "posy": 95
+    },
+    {
+      "energy": 3,
+      "posx": 85,
+      "posy": 95
+    },
+    {
+      "energy": 2,
+      "posx": 95,
+      "posy": 95
+    }
   ],
   "herbivores": [
-    {"energy": 5, "posx": 10, "posy": 10},
-    {"energy": 6, "posx": 20, "posy": 10},
-    {"energy": 4, "posx": 30, "posy": 10},
-    {"energy": 7, "posx": 40, "posy": 10},
-    {"energy": 5, "posx": 50, "posy": 10},
-    {"energy": 6, "posx": 60, "posy": 10},
-    {"energy": 4, "posx": 70, "posy": 10},
-    {"energy": 7, "posx": 80, "posy": 10},
-    {"energy": 5, "posx": 90, "posy": 10},
-    {"energy": 6, "posx": 10, "posy": 20},
-    {"energy": 4, "posx": 20, "posy": 20},
-    {"energy": 7, "posx": 30, "posy": 20},
-    {"energy": 5, "posx": 40, "posy": 20},
-    {"energy": 6, "posx": 50, "posy": 20},
-    {"energy": 4, "posx": 60, "posy": 20},
-    {"energy": 7, "posx": 70, "posy": 20},
-    {"energy": 5, "posx": 80, "posy": 20},
-    {"energy": 6, "posx": 90, "posy": 20},
-    {"energy": 8, "posx": 10, "posy": 30},
-    {"energy": 7, "posx": 20, "posy": 30},
-    {"energy": 5, "posx": 30, "posy": 30},
-    {"energy": 6, "posx": 40, "posy": 30},
-    {"energy": 4, "posx": 50, "posy": 30},
-    {"energy": 7, "posx": 60, "posy": 30},
-    {"energy": 5, "posx": 70, "posy": 30},
-    {"energy": 6, "posx": 80, "posy": 30},
-    {"energy": 4, "posx": 90, "posy": 30},
-    {"energy": 7, "posx": 10, "posy": 40},
-    {"energy": 5, "posx": 20, "posy": 40},
-    {"energy": 6, "posx": 30, "posy": 40},
-    {"energy": 4, "posx": 40, "posy": 40},
-    {"energy": 7, "posx": 50, "posy": 40},
-    {"energy": 5, "posx": 60, "posy": 40},
-    {"energy": 6, "posx": 70, "posy": 40},
-    {"energy": 4, "posx": 80, "posy": 40},
-    {"energy": 7, "posx": 90, "posy": 40},
-    {"energy": 8, "posx": 10, "posy": 50},
-    {"energy": 7, "posx": 20, "posy": 50},
-    {"energy": 5, "posx": 30, "posy": 50},
-    {"energy": 6, "posx": 40, "posy": 50},
-    {"energy": 4, "posx": 50, "posy": 50},
-    {"energy": 7, "posx": 60, "posy": 50},
-    {"energy": 5, "posx": 70, "posy": 50},
-    {"energy": 6, "posx": 80, "posy": 50},
-    {"energy": 4, "posx": 90, "posy": 50},
-    {"energy": 7, "posx": 10, "posy": 60},
-    {"energy": 5, "posx": 20, "posy": 60},
-    {"energy": 6, "posx": 30, "posy": 60},
-    {"energy": 4, "posx": 40, "posy": 60},
-    {"energy": 7, "posx": 50, "posy": 60},
-    {"energy": 5, "posx": 60, "posy": 60},
-    {"energy": 6, "posx": 70, "posy": 60},
-    {"energy": 4, "posx": 80, "posy": 60},
-    {"energy": 7, "posx": 90, "posy": 60},
-    {"energy": 8, "posx": 10, "posy": 70},
-    {"energy": 7, "posx": 20, "posy": 70},
-    {"energy": 5, "posx": 30, "posy": 70},
-    {"energy": 6, "posx": 40, "posy": 70},
-    {"energy": 4, "posx": 50, "posy": 70},
-    {"energy": 7, "posx": 60, "posy": 70},
-    {"energy": 5, "posx": 70, "posy": 70},
-    {"energy": 6, "posx": 80, "posy": 70},
-    {"energy": 4, "posx": 90, "posy": 70},
-    {"energy": 7, "posx": 10, "posy": 80},
-    {"energy": 5, "posx": 20, "posy": 80},
-    {"energy": 6, "posx": 30, "posy": 80},
-    {"energy": 4, "posx": 40, "posy": 80},
-    {"energy": 7, "posx": 50, "posy": 80},
-    {"energy": 5, "posx": 60, "posy": 80},
-    {"energy": 6, "posx": 70, "posy": 80},
-    {"energy": 4, "posx": 80, "posy": 80},
-    {"energy": 7, "posx": 90, "posy": 80},
-    {"energy": 8, "posx": 10, "posy": 90},
-    {"energy": 7, "posx": 20, "posy": 90},
-    {"energy": 5, "posx": 30, "posy": 90},
-    {"energy": 6, "posx": 40, "posy": 90},
-    {"energy": 4, "posx": 50, "posy": 90},
-    {"energy": 7, "posx": 60, "posy": 90},
-    {"energy": 5, "posx": 70, "posy": 90},
-    {"energy": 6, "posx": 80, "posy": 90},
-    {"energy": 4, "posx": 90, "posy": 90},
-    {"energy": 5, "posx": 0, "posy": 0},
-    {"energy": 6, "posx": 99, "posy": 0},
-    {"energy": 4, "posx": 0, "posy": 99},
-    {"energy": 7, "posx": 99, "posy": 99},
-    {"energy": 5, "posx": 50, "posy": 0},
-    {"energy": 6, "posx": 50, "posy": 99},
-    {"energy": 4, "posx": 0, "posy": 50},
-    {"energy": 7, "posx": 99, "posy": 50},
-    {"energy": 8, "posx": 25, "posy": 25},
-    {"energy": 7, "posx": 75, "posy": 25},
-    {"energy": 5, "posx": 25, "posy": 75},
-    {"energy": 6, "posx": 75, "posy": 75},
-    {"energy": 4, "posx": 12, "posy": 50},
-    {"energy": 7, "posx": 87, "posy": 50},
-    {"energy": 5, "posx": 50, "posy": 12},
-    {"energy": 6, "posx": 50, "posy": 87}
+    {
+      "energy": 5,
+      "posx": 10,
+      "posy": 10
+    },
+    {
+      "energy": 6,
+      "posx": 20,
+      "posy": 10
+    },
+    {
+      "energy": 4,
+      "posx": 30,
+      "posy": 10
+    },
+    {
+      "energy": 7,
+      "posx": 40,
+      "posy": 10
+    },
+    {
+      "energy": 5,
+      "posx": 50,
+      "posy": 10
+    },
+    {
+      "energy": 6,
+      "posx": 60,
+      "posy": 10
+    },
+    {
+      "energy": 4,
+      "posx": 70,
+      "posy": 10
+    },
+    {
+      "energy": 7,
+      "posx": 80,
+      "posy": 10
+    },
+    {
+      "energy": 5,
+      "posx": 90,
+      "posy": 10
+    },
+    {
+      "energy": 6,
+      "posx": 10,
+      "posy": 20
+    },
+    {
+      "energy": 4,
+      "posx": 20,
+      "posy": 20
+    },
+    {
+      "energy": 7,
+      "posx": 30,
+      "posy": 20
+    },
+    {
+      "energy": 5,
+      "posx": 40,
+      "posy": 20
+    },
+    {
+      "energy": 6,
+      "posx": 50,
+      "posy": 20
+    },
+    {
+      "energy": 4,
+      "posx": 60,
+      "posy": 20
+    },
+    {
+      "energy": 7,
+      "posx": 70,
+      "posy": 20
+    },
+    {
+      "energy": 5,
+      "posx": 80,
+      "posy": 20
+    },
+    {
+      "energy": 6,
+      "posx": 90,
+      "posy": 20
+    },
+    {
+      "energy": 8,
+      "posx": 10,
+      "posy": 30
+    },
+    {
+      "energy": 7,
+      "posx": 20,
+      "posy": 30
+    },
+    {
+      "energy": 5,
+      "posx": 30,
+      "posy": 30
+    },
+    {
+      "energy": 6,
+      "posx": 40,
+      "posy": 30
+    },
+    {
+      "energy": 4,
+      "posx": 50,
+      "posy": 30
+    },
+    {
+      "energy": 7,
+      "posx": 60,
+      "posy": 30
+    },
+    {
+      "energy": 5,
+      "posx": 70,
+      "posy": 30
+    },
+    {
+      "energy": 6,
+      "posx": 80,
+      "posy": 30
+    },
+    {
+      "energy": 4,
+      "posx": 90,
+      "posy": 30
+    },
+    {
+      "energy": 7,
+      "posx": 10,
+      "posy": 40
+    },
+    {
+      "energy": 5,
+      "posx": 20,
+      "posy": 40
+    },
+    {
+      "energy": 6,
+      "posx": 30,
+      "posy": 40
+    },
+    {
+      "energy": 4,
+      "posx": 40,
+      "posy": 40
+    },
+    {
+      "energy": 7,
+      "posx": 50,
+      "posy": 40
+    },
+    {
+      "energy": 5,
+      "posx": 60,
+      "posy": 40
+    },
+    {
+      "energy": 6,
+      "posx": 70,
+      "posy": 40
+    },
+    {
+      "energy": 4,
+      "posx": 80,
+      "posy": 40
+    },
+    {
+      "energy": 7,
+      "posx": 90,
+      "posy": 40
+    },
+    {
+      "energy": 8,
+      "posx": 10,
+      "posy": 50
+    },
+    {
+      "energy": 7,
+      "posx": 20,
+      "posy": 50
+    },
+    {
+      "energy": 5,
+      "posx": 30,
+      "posy": 50
+    },
+    {
+      "energy": 6,
+      "posx": 40,
+      "posy": 50
+    },
+    {
+      "energy": 4,
+      "posx": 50,
+      "posy": 50
+    },
+    {
+      "energy": 7,
+      "posx": 60,
+      "posy": 50
+    },
+    {
+      "energy": 5,
+      "posx": 70,
+      "posy": 50
+    },
+    {
+      "energy": 6,
+      "posx": 80,
+      "posy": 50
+    },
+    {
+      "energy": 4,
+      "posx": 90,
+      "posy": 50
+    },
+    {
+      "energy": 7,
+      "posx": 10,
+      "posy": 60
+    },
+    {
+      "energy": 5,
+      "posx": 20,
+      "posy": 60
+    },
+    {
+      "energy": 6,
+      "posx": 30,
+      "posy": 60
+    },
+    {
+      "energy": 4,
+      "posx": 40,
+      "posy": 60
+    },
+    {
+      "energy": 7,
+      "posx": 50,
+      "posy": 60
+    },
+    {
+      "energy": 5,
+      "posx": 60,
+      "posy": 60
+    },
+    {
+      "energy": 6,
+      "posx": 70,
+      "posy": 60
+    },
+    {
+      "energy": 4,
+      "posx": 80,
+      "posy": 60
+    },
+    {
+      "energy": 7,
+      "posx": 90,
+      "posy": 60
+    },
+    {
+      "energy": 8,
+      "posx": 10,
+      "posy": 70
+    },
+    {
+      "energy": 7,
+      "posx": 20,
+      "posy": 70
+    },
+    {
+      "energy": 5,
+      "posx": 30,
+      "posy": 70
+    },
+    {
+      "energy": 6,
+      "posx": 40,
+      "posy": 70
+    },
+    {
+      "energy": 4,
+      "posx": 50,
+      "posy": 70
+    },
+    {
+      "energy": 7,
+      "posx": 60,
+      "posy": 70
+    },
+    {
+      "energy": 5,
+      "posx": 70,
+      "posy": 70
+    },
+    {
+      "energy": 6,
+      "posx": 80,
+      "posy": 70
+    },
+    {
+      "energy": 4,
+      "posx": 90,
+      "posy": 70
+    },
+    {
+      "energy": 7,
+      "posx": 10,
+      "posy": 80
+    },
+    {
+      "energy": 5,
+      "posx": 20,
+      "posy": 80
+    },
+    {
+      "energy": 6,
+      "posx": 30,
+      "posy": 80
+    },
+    {
+      "energy": 4,
+      "posx": 40,
+      "posy": 80
+    },
+    {
+      "energy": 7,
+      "posx": 50,
+      "posy": 80
+    },
+    {
+      "energy": 5,
+      "posx": 60,
+      "posy": 80
+    },
+    {
+      "energy": 6,
+      "posx": 70,
+      "posy": 80
+    },
+    {
+      "energy": 4,
+      "posx": 80,
+      "posy": 80
+    },
+    {
+      "energy": 7,
+      "posx": 90,
+      "posy": 80
+    },
+    {
+      "energy": 8,
+      "posx": 10,
+      "posy": 90
+    },
+    {
+      "energy": 7,
+      "posx": 20,
+      "posy": 90
+    },
+    {
+      "energy": 5,
+      "posx": 30,
+      "posy": 90
+    },
+    {
+      "energy": 6,
+      "posx": 40,
+      "posy": 90
+    },
+    {
+      "energy": 4,
+      "posx": 50,
+      "posy": 90
+    },
+    {
+      "energy": 7,
+      "posx": 60,
+      "posy": 90
+    },
+    {
+      "energy": 5,
+      "posx": 70,
+      "posy": 90
+    },
+    {
+      "energy": 6,
+      "posx": 80,
+      "posy": 90
+    },
+    {
+      "energy": 4,
+      "posx": 90,
+      "posy": 90
+    },
+    {
+      "energy": 5,
+      "posx": 0,
+      "posy": 0
+    },
+    {
+      "energy": 6,
+      "posx": 99,
+      "posy": 0
+    },
+    {
+      "energy": 4,
+      "posx": 0,
+      "posy": 99
+    },
+    {
+      "energy": 7,
+      "posx": 99,
+      "posy": 99
+    },
+    {
+      "energy": 5,
+      "posx": 50,
+      "posy": 0
+    },
+    {
+      "energy": 6,
+      "posx": 50,
+      "posy": 99
+    },
+    {
+      "energy": 4,
+      "posx": 0,
+      "posy": 50
+    },
+    {
+      "energy": 7,
+      "posx": 99,
+      "posy": 50
+    },
+    {
+      "energy": 8,
+      "posx": 25,
+      "posy": 25
+    },
+    {
+      "energy": 7,
+      "posx": 75,
+      "posy": 25
+    },
+    {
+      "energy": 5,
+      "posx": 25,
+      "posy": 75
+    },
+    {
+      "energy": 6,
+      "posx": 75,
+      "posy": 75
+    },
+    {
+      "energy": 4,
+      "posx": 12,
+      "posy": 50
+    },
+    {
+      "energy": 7,
+      "posx": 87,
+      "posy": 50
+    },
+    {
+      "energy": 5,
+      "posx": 50,
+      "posy": 12
+    },
+    {
+      "energy": 6,
+      "posx": 50,
+      "posy": 87
+    }
   ],
   "carnivores": []
 }

@@ -1,0 +1,53 @@
+{
+  "world": {
+    "width": 20,
+    "height": 20
+  },
+  "plants": [
+    {"energy": 3, "posx": 0, "posy": 0},
+    {"energy": 3, "posx": 19, "posy": 0},
+    {"energy": 3, "posx": 0, "posy": 19},
+    {"energy": 3, "posx": 19, "posy": 19},
+    {"energy": 2, "posx": 5, "posy": 5},
+    {"energy": 3, "posx": 14, "posy": 5},
+    {"energy": 2, "posx": 5, "posy": 14},
+    {"energy": 3, "posx": 14, "posy": 14},
+    {"energy": 2, "posx": 10, "posy": 10},
+    {"energy": 1, "posx": 3, "posy": 3},
+    {"energy": 1, "posx": 16, "posy": 3},
+    {"energy": 1, "posx": 3, "posy": 16},
+    {"energy": 2, "posx": 16, "posy": 16},
+    {"energy": 2, "posx": 7, "posy": 7},
+    {"energy": 2, "posx": 12, "posy": 7},
+    {"energy": 2, "posx": 7, "posy": 12},
+    {"energy": 3, "posx": 12, "posy": 12},
+    {"energy": 1, "posx": 1, "posy": 10},
+    {"energy": 1, "posx": 18, "posy": 10},
+    {"energy": 1, "posx": 10, "posy": 1}
+  ],
+  "herbivores": [
+    {"energy": 7, "posx": 1, "posy": 1},
+    {"energy": 6, "posx": 18, "posy": 1},
+    {"energy": 5, "posx": 1, "posy": 18},
+    {"energy": 7, "posx": 18, "posy": 18},
+    {"energy": 5, "posx": 10, "posy": 0},
+    {"energy": 6, "posx": 10, "posy": 19},
+    {"energy": 4, "posx": 0, "posy": 10},
+    {"energy": 5, "posx": 19, "posy": 10},
+    {"energy": 6, "posx": 10, "posy": 10},
+    {"energy": 3, "posx": 5, "posy": 2},
+    {"energy": 4, "posx": 14, "posy": 2},
+    {"energy": 5, "posx": 5, "posy": 17},
+    {"energy": 4, "posx": 14, "posy": 17},
+    {"energy": 7, "posx": 2, "posy": 5}
+  ],
+  "carnivores": [
+    {"energy": 15, "posx": 17, "posy": 5},
+    {"energy": 12, "posx": 2, "posy": 14},
+    {"energy": 10, "posx": 17, "posy": 14},
+    {"energy": 14, "posx": 9, "posy": 9},
+    {"energy": 11, "posx": 11, "posy": 11},
+    {"energy": 13, "posx": 10, "posy": 18}
+  ]
+}
+

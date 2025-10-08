@@ -1,0 +1,19 @@
+{
+  "world": {
+    "width": 20,
+    "height": 20
+  },
+  "plants": [
+    {"energy": 3, "posx": 0, "posy": 0},
+    {"energy": 3, "posx": 19, "posy": 0},
+    {"energy": 3, "posx": 0, "posy": 19},
+    {"energy": 3, "posx": 19, "posy": 19},
+    {"energy": 2, "posx": 1, "posy": 1},
+    {"energy": 2, "posx": 18, "posy": 1},
+    {"energy": 2, "posx": 1, "posy": 18},
+    {"energy": 2, "posx": 18, "posy": 18}
+  ],
+  "herbivores": [],
+  "carnivores": []
+}
+
